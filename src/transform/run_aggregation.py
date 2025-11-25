@@ -2,10 +2,11 @@
 import psycopg2
 
 print("BẮT ĐẦU TRANSFORM: TÍNH TOÁN + TỔNG HỢP...")
-
+# ket noi vao datawarehouse
 conn = psycopg2.connect(host='localhost', port=5432, user='postgres', password='123456', dbname='fahasa_dw')
 cur = conn.cursor()
 
+#lam sach va chuan hoa du lieu truoc khi transform
 print("→ Transform dim_date (tách ngày, tháng, năm)...")
 cur.execute("""
     UPDATE dim_date 
@@ -32,6 +33,7 @@ cur.execute("""
 """)
 
 # === 2. TẠO DATA MART: Tổng hợp doanh thu, sách bán chạy ===
+# gom du lieu, tinh toan, tong hop
 print("→ Tạo Data Mart: fahasa_sales_mart...")
 cur.execute("""
     DROP MATERIALIZED VIEW IF EXISTS fahasa_sales_mart;
@@ -46,6 +48,7 @@ cur.execute("""
         SUM(f.discount_price * f.sold_count_numeric) AS total_revenue,
         AVG(f.rating) AS avg_rating,
         COUNT(*) AS record_count
+        
     FROM fact_book_sales f
     JOIN dim_product p ON f.product_id = p.product_id
     JOIN dim_author a ON f.author_id = a.author_id
@@ -78,7 +81,7 @@ cur.execute("""
     FROM ranked
     WHERE rn <= 10;
 """)
-
+# luu va dong ket noi
 conn.commit()
 cur.close()
 conn.close()
