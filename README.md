@@ -21,7 +21,3 @@ python src/crawler/fahasa_bulk_scraper.py
 ## 🛠️ Tech Stack
 
 Python 3.12 • Selenium • Pandas • psycopg2 • PostgreSQL
-
----
-
-⭐ [sayuchan2302](https://github.com/sayuchan2302) • For educational purposes only
