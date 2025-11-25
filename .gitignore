@@ -1,0 +1,15 @@
+# Ignore PyCharm / IntelliJ IDEA project settings
+.idea/
+
+# Ignore Python virtual environment
+.venv/
+
+# Optional: ignore other common Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Optional: ignore environment files
+.env
+*.env

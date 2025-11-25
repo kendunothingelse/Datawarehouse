@@ -1,0 +1,49 @@
+
+    POWER BI TEMPLATE - FAHASA BOOK ANALYSIS
+    ======================================
+
+    RECOMMENDED VISUALS:
+
+    1. KPI CARDS:
+       - Total Books Sold: SUM(total_sold)
+       - Total Revenue: SUM(total_revenue) 
+       - Average Rating: AVERAGE(avg_rating)
+       - Unique Authors: DISTINCTCOUNT(author_name)
+
+    2. CHARTS:
+       - Line Chart: Monthly Sales Trend
+       - Bar Chart: Top 10 Books by Sales
+       - Pie Chart: Revenue by Category
+       - Scatter Plot: Price vs Sales
+       - Treemap: Author Performance
+       - Matrix: Category x Time Period
+
+    3. SLICERS:
+       - Category
+       - Year 
+       - Month
+       - Author
+       - Price Range
+
+    4. DAX MEASURES SUGGESTED:
+
+    Total Revenue = SUM(fahasa_sales_data[total_revenue])
+
+    Total Books Sold = SUM(fahasa_sales_data[total_sold])
+
+    Average Price = DIVIDE([Total Revenue], [Total Books Sold], 0)
+
+    Revenue Growth = 
+    VAR CurrentRevenue = [Total Revenue]
+    VAR PreviousRevenue = CALCULATE([Total Revenue], PREVIOUSMONTH(fahasa_timeseries[date]))
+    RETURN DIVIDE(CurrentRevenue - PreviousRevenue, PreviousRevenue, 0)
+
+    Top Performer = 
+    MAXX(TOPN(1, fahasa_sales_data, fahasa_sales_data[total_sold], DESC), fahasa_sales_data[title])
+
+    5. COLOR SCHEME:
+       Primary: #1E4B87 (Fahasa Blue)
+       Secondary: #FF6B00 (Orange)
+       Success: #28A745 (Green)
+       Warning: #FFC107 (Yellow)
+    

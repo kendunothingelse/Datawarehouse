@@ -1,0 +1,194 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>FAHASA DATA VISUALIZATION DASHBOARD</title>
+        <meta charset="UTF-8">
+        <style>
+            body { 
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+                margin: 0; 
+                padding: 20px; 
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                min-height: 100vh;
+            }
+            .container {
+                max-width: 1400px;
+                margin: 0 auto;
+                background: white;
+                border-radius: 15px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+                overflow: hidden;
+            }
+            .header { 
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                color: white; 
+                padding: 30px; 
+                text-align: center;
+            }
+            .header h1 {
+                margin: 0;
+                font-size: 2.5em;
+                font-weight: 300;
+            }
+            .header p {
+                margin: 10px 0 0 0;
+                font-size: 1.2em;
+                opacity: 0.9;
+            }
+            .stats { 
+                display: grid; 
+                grid-template-columns: repeat(4, 1fr); 
+                gap: 20px; 
+                padding: 30px;
+                background: #f8f9fa;
+            }
+            .stat-card { 
+                background: white;
+                padding: 25px; 
+                border-radius: 12px; 
+                text-align: center; 
+                box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+                border-left: 5px solid #667eea;
+                transition: transform 0.3s ease;
+            }
+            .stat-card:hover {
+                transform: translateY(-5px);
+            }
+            .stat-card h3 {
+                margin: 0 0 15px 0;
+                color: #666;
+                font-size: 1em;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+            }
+            .stat-card .number {
+                font-size: 2.2em;
+                font-weight: bold;
+                color: #333;
+                margin: 10px 0;
+            }
+            .stat-card .unit {
+                color: #667eea;
+                font-weight: 600;
+            }
+            .chart-grid { 
+                display: grid; 
+                grid-template-columns: repeat(2, 1fr); 
+                gap: 25px; 
+                padding: 30px;
+            }
+            .chart-item { 
+                background: white;
+                padding: 20px; 
+                border-radius: 12px; 
+                box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+                border: 1px solid #eaeaea;
+            }
+            .chart-item h3 {
+                margin: 0 0 15px 0;
+                color: #333;
+                font-size: 1.3em;
+                font-weight: 600;
+                padding-bottom: 10px;
+                border-bottom: 2px solid #667eea;
+            }
+            .chart-item img { 
+                width: 100%; 
+                height: auto; 
+                border-radius: 8px;
+                transition: transform 0.3s ease;
+            }
+            .chart-item img:hover {
+                transform: scale(1.02);
+            }
+            .footer {
+                text-align: center;
+                padding: 20px;
+                background: #f8f9fa;
+                color: #666;
+                border-top: 1px solid #eaeaea;
+            }
+            @media (max-width: 768px) {
+                .stats { grid-template-columns: repeat(2, 1fr); }
+                .chart-grid { grid-template-columns: 1fr; }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h1>📊 FAHASA DATA VISUALIZATION DASHBOARD</h1>
+                <p>Phân tích dữ liệu sách từ Fahasa - Hoàn toàn bằng Python</p>
+            </div>
+
+            <div class="stats">
+                <div class="stat-card">
+                    <h3>📚 Tổng Số Sách</h3>
+                    <div class="number">12</div>
+                    <div class="unit">quyển sách</div>
+                </div>
+                <div class="stat-card">
+                    <h3>💰 Tổng Doanh Thu</h3>
+                    <div class="number">9,774,579,500</div>
+                    <div class="unit">VND</div>
+                </div>
+                <div class="stat-card">
+                    <h3>🛒 Tổng Số Bán</h3>
+                    <div class="number">101,545</div>
+                    <div class="unit">lượt bán</div>
+                </div>
+                <div class="stat-card">
+                    <h3>👨‍🎓 Tác Giả</h3>
+                    <div class="number">6</div>
+                    <div class="unit">tác giả</div>
+                </div>
+            </div>
+
+            <div class="chart-grid">
+    
+                <div class="chart-item">
+                    <h3>Category Distribution</h3>
+                    <img src="category_distribution.png" alt="category_distribution.png">
+                </div>
+        
+                <div class="chart-item">
+                    <h3>Correlation Analysis</h3>
+                    <img src="correlation_analysis.png" alt="correlation_analysis.png">
+                </div>
+        
+                <div class="chart-item">
+                    <h3>Rating Distribution</h3>
+                    <img src="rating_distribution.png" alt="rating_distribution.png">
+                </div>
+        
+                <div class="chart-item">
+                    <h3>Time Analysis</h3>
+                    <img src="time_analysis.png" alt="time_analysis.png">
+                </div>
+        
+                <div class="chart-item">
+                    <h3>Top 10 Bestsellers</h3>
+                    <img src="top_10_bestsellers.png" alt="top_10_bestsellers.png">
+                </div>
+        
+                <div class="chart-item">
+                    <h3>Top 10 Revenue</h3>
+                    <img src="top_10_revenue.png" alt="top_10_revenue.png">
+                </div>
+        
+                <div class="chart-item">
+                    <h3>Top Authors</h3>
+                    <img src="top_authors.png" alt="top_authors.png">
+                </div>
+        
+            </div>
+
+            <div class="footer">
+                <p>Generated with Python • Matplotlib • Seaborn • 2025-11-11 22:48:17</p>
+            </div>
+        </div>
+    </body>
+    </html>
+    

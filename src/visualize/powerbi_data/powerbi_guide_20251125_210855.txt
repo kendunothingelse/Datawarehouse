@@ -1,0 +1,87 @@
+
+    🎨 HƯỚNG DẪN SỬ DỤNG POWER BI VỚI DỮ LIỆU FAHASA
+    =============================================
+
+    📁 DỮ LIỆU ĐÃ EXPORT:
+    • fahasa_sales_data_20251125_210855.csv - Dữ liệu bán hàng chính
+    • fahasa_authors_20251125_210855.csv - Thống kê tác giả
+    • fahasa_categories_20251125_210855.csv - Thống kê danh mục  
+    • fahasa_timeseries_20251125_210855.csv - Dữ liệu chuỗi thời gian
+    • fahasa_top_books_20251125_210855.csv - Top 50 sách bán chạy
+
+    🚀 BƯỚC 1: MỞ POWER BI DESKTOP
+    ---------------------------
+    1. Mở Microsoft Power BI Desktop
+    2. Chọn "Get Data" → "Text/CSV"
+    3. Chọn file: powerbi_data/fahasa_sales_data_20251125_210855.csv
+    4. Nhấn "Load"
+
+    📊 BƯỚC 2: TẠO DATA MODEL
+    ------------------------
+    1. Vào tab "Model" view
+    2. Import các file CSV còn lại
+    3. Tạo relationships:
+       • sales_data[author_name] → authors[author_name]
+       • sales_data[category] → categories[category]
+       • sales_data[collect_year, collect_month] → timeseries[collect_year, collect_month]
+
+    🎯 BƯỚC 3: TẠO CÁC DASHBOARD CHÍNH
+    ---------------------------------
+
+    📈 DASHBOARD 1: TỔNG QUAN KINH DOANH
+    • Card: SUM(total_sold) - Tổng số sách bán
+    • Card: SUM(total_revenue) - Tổng doanh thu  
+    • Card: AVERAGE(avg_rating) - Rating trung bình
+    • Line Chart: monthly_sold theo thời gian
+    • Pie Chart: total_revenue theo category
+
+    📚 DASHBOARD 2: PHÂN TÍCH SẢN PHẨM
+    • Table: Top 10 title (sort by total_sold)
+    • Bar Chart: Top authors by total_books_sold
+    • Treemap: Category distribution by revenue
+    • Scatter Plot: total_sold vs avg_rating
+
+    👥 DASHBOARD 3: PHÂN TÍCH TÁC GIẢ
+    • Bar Chart: Top authors by revenue
+    • Donut Chart: Author performance distribution
+    • Card: AVERAGE(avg_author_rating)
+    • Table: Author details with book count
+
+    💰 DASHBOARD 4: CHIẾN LƯỢC GIÁ
+    • Column Chart: price_per_book distribution
+    • Line Chart: Revenue trend by price segments
+    • Gauge: Overall discount performance
+    • Matrix: Category vs Price segments
+
+    ⭐ DASHBOARD 5: ĐÁNH GIÁ CHẤT LƯỢNG
+    • Line Chart: monthly_avg_rating trend
+    • Bar Chart: Top rated books
+    • Scatter: Rating vs Sales correlation
+    • KPI: Rating distribution by category
+
+    🎨 BƯỚC 4: TÙY CHỈNH VISUALIZATION
+    --------------------------------
+    • Dùng Theme Colors phù hợp (Xanh Fahasa: #1E4B87)
+    • Add Slicers: Category, Year, Month, Author
+    • Create Tooltips với thông tin chi tiết
+    • Use Conditional Formatting cho tables
+    • Add Bookmarks cho các view khác nhau
+
+    🔗 BƯỚC 5: KẾT NỐI & SHARE
+    -------------------------
+    • Publish lên Power BI Service
+    • Tạo Scheduled Refresh (nếu cần)
+    • Share report với team members
+    • Set up Data Alerts cho KPI quan trọng
+
+    💡 MẸO NÂNG CAO:
+    • Dùng DAX measures cho tính toán phức tạp
+    • Tạo Calculated Columns cho phân tích
+    • Sử dụng Q&A feature cho query tự nhiên
+    • Tạo Mobile Layout cho điện thoại
+
+    📞 HỖ TRỢ:
+    • File dữ liệu: powerbi_data/
+    • Timestamp: 20251125_210855
+    • Total records: 0
+    
